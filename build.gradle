@@ -5,7 +5,7 @@ plugins {
 }
 apply plugin: 'maven-publish'
 
-group 'org.plataforma'
+group 'org.king.plataforma'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -16,23 +16,16 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.libDep1:lib-dep-1:1.1-SNAPSHOT'
-    implementation 'org.libDep2:lib-dep-2:1.0-SNAPSHOT'
-    implementation 'org.libDep3:lib-dep-3:1.0-SNAPSHOT'
-    implementation 'org.libDep4:lib-dep-4:1.0-SNAPSHOT'
-    implementation 'org.libDep5:lib-dep-5:1.0-SNAPSHOT'
+    implementation 'org.king.libDep1:lib-dep-1:1.0-SNAPSHOT'
+    implementation 'org.king.libDep2:lib-dep-2:1.0-SNAPSHOT'
+    implementation 'org.king.libDep3:lib-dep-3:1.0-SNAPSHOT'
+    implementation 'org.king.libDep4:lib-dep-4:1.0-SNAPSHOT'
+    implementation 'org.king.libDep5:lib-dep-5:1.0-SNAPSHOT'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
 apply plugin : "java"
-ext {
-    javaMainClass = "org.plataforma.Main"
-}
-
-application {
-    mainClassName = javaMainClass
-}
 
 test {
     useJUnitPlatform()

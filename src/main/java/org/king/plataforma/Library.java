@@ -1,7 +1,4 @@
-package org.plataforma;
-
-import org.libDep1.*;
-import org.libDep2.*;
+package org.king.plataforma;
 
 public class Library {
     public String[] count(Integer number) {
@@ -12,11 +9,11 @@ public class Library {
         return lines;
     }
     public String greetAll(String name) {
-        org.libDep1.Library libDep1 = new org.libDep1.Library();
-        org.libDep2.Library libDep2 = new org.libDep2.Library();
-        org.libDep3.Library libDep3 = new org.libDep3.Library();
-        org.libDep4.Library libDep4 = new org.libDep4.Library();
-        org.libDep5.Library libDep5 = new org.libDep5.Library();
+        org.king.libDep1.Library libDep1 = new org.king.libDep1.Library();
+        org.king.libDep2.Library libDep2 = new org.king.libDep2.Library();
+        org.king.libDep3.Library libDep3 = new org.king.libDep3.Library();
+        org.king.libDep4.Library libDep4 = new org.king.libDep4.Library();
+        org.king.libDep5.Library libDep5 = new org.king.libDep5.Library();
         StringBuilder sb = new StringBuilder(); 
         sb.append(libDep1.greet("plataforma")+",");
         sb.append(libDep2.greet("plataforma")+",");

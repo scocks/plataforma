@@ -1,7 +1,6 @@
-package org.plataforma;
+package org.king.plataforma;
 
 import org.junit.jupiter.api.Test;
-import org.plataforma.Library;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

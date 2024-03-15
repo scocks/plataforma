@@ -1,4 +1,4 @@
-package org.plataforma;
+package org.king.plataforma;
 
 public class Main {
     public static void main(String[] args) {
