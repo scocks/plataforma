@@ -24,6 +24,47 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
+apply plugin : "java"
+ext {
+    javaMainClass = "org.plataforma.Main"
+}
+
+application {
+    mainClassName = javaMainClass
+}
+
 test {
     useJUnitPlatform()
 }
+
+sonar {
+    properties {
+        property 'sonar.projectKey', 'plataforma'
+        property 'sonar.organization', 'king'
+        property 'sonar.host.url', ' https://sonarqube.kingq12024.sa-demo.beescloud.com/'
+        property 'sonar.token', 'sqa_7e6d65b9f302f6d68761a5d70e4ab9e5786ff085'
+        property 'sonar.gradle.skipCompile', 'true'
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact("build/libs/plataforma-${version}.jar") {
+                extension 'jar'
+            }
+        }
+    }
+    repositories {
+        maven {
+            name 'nexus'
+            url "https://nexus.kingq12024.sa-demo.beescloud.com/repository/maven-snapshots/"
+            credentials {
+                username project.repoUser
+                password project.repoPassword
+            }
+        }
+    }
+}
+
+publishMavenPublicationToNexusRepository.dependsOn jar
