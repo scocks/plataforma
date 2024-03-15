@@ -2,6 +2,8 @@ package org.king.plataforma;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MainTest {
@@ -17,8 +19,14 @@ class MainTest {
     @Test
     void testGreetAll() {
         Library library = new Library();
-        String result = library.greetAll("plataforma");
-        assertEquals("Hello from plataforma, plataforma!,Hello, plataforma!,Greetings, plataforma!,Salutations, plataforma!,Hej, plataforma!,Kon'nichiwa, plataforma!", result);
+        ArrayList<String> result = library.greetAll("plataforma");
+        assertEquals(6,result.size());
+        assertEquals("Hello from plataforma, plataforma!", result.get(0));
+        assertEquals("Hello, plataforma!", result.get(1));
+        assertEquals("Greetings, plataforma!", result.get(2));
+        assertEquals("Salutations, plataforma!", result.get(3));
+        assertEquals("Hej, plataforma!", result.get(4));
+        assertEquals("Kon'nichiwa, plataforma!", result.get(5));
     }
     @Test
     void testGreet() {

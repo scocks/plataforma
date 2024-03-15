@@ -1,5 +1,7 @@
 package org.king.plataforma;
 
+import java.util.ArrayList;
+
 public class Library {
     public String[] count(Integer number) {
         String[] lines = new String[number];
@@ -8,19 +10,20 @@ public class Library {
         }
         return lines;
     }
-    public String greetAll(String name) {
+    public ArrayList<String> greetAll(String name) {
+        ArrayList<String> greetings = new ArrayList<>();
         org.king.libDep1.Library libDep1 = new org.king.libDep1.Library();
         org.king.libDep2.Library libDep2 = new org.king.libDep2.Library();
         org.king.libDep3.Library libDep3 = new org.king.libDep3.Library();
         org.king.libDep4.Library libDep4 = new org.king.libDep4.Library();
         org.king.libDep5.Library libDep5 = new org.king.libDep5.Library();
-        StringBuilder sb = new StringBuilder(); 
-        sb.append(libDep1.greet("plataforma")+",");
-        sb.append(libDep2.greet("plataforma")+",");
-        sb.append(libDep3.greet("plataforma")+",");
-        sb.append(libDep4.greet("plataforma")+",");
-        sb.append(libDep5.greet("plataforma"));
-        return "Hello from plataforma, " + name + "!," + sb.toString();
+        greetings.add("Hello from plataforma, " + name + "!");
+        greetings.add(libDep1.greet("plataforma"));
+        greetings.add(libDep2.greet("plataforma"));
+        greetings.add(libDep3.greet("plataforma"));
+        greetings.add(libDep4.greet("plataforma"));
+        greetings.add(libDep5.greet("plataforma"));
+        return greetings;
     }
     public String greet(String name) {
         return "Hello from plataforma, " + name + "!";
