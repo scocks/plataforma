@@ -27,23 +27,23 @@ public class Library {
     }
 
     public String greet1(String name) {
-        org.libDep1.Library libDep1 = new org.libDep1.Library();
+        org.king.libDep1.Library libDep1 = new org.king.libDep1.Library();
         return libDep1.greet(name);
     }
     public String greet2(String name) {
-        org.libDep2.Library libDep2 = new org.libDep2.Library();
+        org.king.libDep2.Library libDep2 = new org.king.libDep2.Library();
         return libDep2.greet(name);
     }
     public String greet3(String name) {
-        org.libDep3.Library libDep3 = new org.libDep3.Library();
+        org.king.libDep3.Library libDep3 = new org.king.libDep3.Library();
         return libDep3.greet(name);
     }
     public String greet4(String name) {
-        org.libDep4.Library libDep4 = new org.libDep4.Library();
+        org.king.libDep4.Library libDep4 = new org.king.libDep4.Library();
         return libDep4.greet(name);
     }
     public String greet5(String name) {
-        org.libDep5.Library libDep5 = new org.libDep5.Library();
+        org.king.libDep5.Library libDep5 = new org.king.libDep5.Library();
         return libDep5.greet(name);
     }
 }
