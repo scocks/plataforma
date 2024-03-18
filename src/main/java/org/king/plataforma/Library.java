@@ -18,11 +18,11 @@ public class Library {
         org.king.libDep4.Library libDep4 = new org.king.libDep4.Library();
         org.king.libDep5.Library libDep5 = new org.king.libDep5.Library();
         greetings.add("Hello from plataforma, " + name + "!");
-        greetings.add(libDep1.greet("plataforma"));
-        greetings.add(libDep2.greet("plataforma"));
-        greetings.add(libDep3.greet("plataforma"));
-        greetings.add(libDep4.greet("plataforma"));
-        greetings.add(libDep5.greet("plataforma"));
+        greetings.add(libDep1.greet(name));
+        greetings.add(libDep2.greet(name));
+        greetings.add(libDep3.greet(name));
+        greetings.add(libDep4.greet(name));
+        greetings.add(libDep5.greet(name));
         return greetings;
     }
     public String greet(String name) {
