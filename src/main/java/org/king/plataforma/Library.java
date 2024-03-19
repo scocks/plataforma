@@ -2,7 +2,7 @@ package org.king.plataforma;
 
 public class Library {    
     public String greet(String name) {
-        return "greet from plataforma, " + name + "!";
+        return "greet from plataforma, " + name;
     }
     public String greet1(String name) {
         org.king.libdep1.Library libDep1 = new org.king.libdep1.Library();
