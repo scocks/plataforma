@@ -16,11 +16,12 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.king.libDep1:lib-dep-1:1.0-SNAPSHOT'
-    implementation 'org.king.libDep2:lib-dep-2:1.0-SNAPSHOT'
-    implementation 'org.king.libDep3:lib-dep-3:1.0-SNAPSHOT'
-    implementation 'org.king.libDep4:lib-dep-4:1.0-SNAPSHOT'
-    implementation 'org.king.libDep5:lib-dep-5:1.0-SNAPSHOT'
+    implementation platform('org.king.plataforma-bom:plataforma-bom:1.0.2-SNAPSHOT')
+    implementation 'org.king.libDep1:lib-dep-1'
+    implementation 'org.king.libDep2:lib-dep-2'
+    implementation 'org.king.libDep3:lib-dep-3'
+    implementation 'org.king.libDep4:lib-dep-4'
+    implementation 'org.king.libDep5:lib-dep-5'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
