@@ -1,12 +1,12 @@
 plugins {
     id 'java'
-    id 'application'
     id 'org.sonarqube' version '4.4.1.3373'
+    id 'jacoco'
+    id 'maven-publish'
 }
-apply plugin: 'maven-publish'
 
 group 'org.king.plataforma'
-version '1.1-SNAPSHOT'
+version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -15,8 +15,8 @@ repositories {
     }
 }
 
-dependencies {
-    implementation platform('org.king.plataforma-bom:plataforma-bom:1.0.2-SNAPSHOT')
+dependencies {    
+    implementation platform('org.king.plataforma-bom:plataforma-bom:1.0.0-SNAPSHOT')
     implementation 'org.king.libDep1:lib-dep-1'
     implementation 'org.king.libDep2:lib-dep-2'
     implementation 'org.king.libDep3:lib-dep-3'
@@ -26,11 +26,16 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
-apply plugin : "java"
-
 test {
     useJUnitPlatform()
 }
+
+jacocoTestReport {    
+    reports {
+        xml.required = true    
+    }
+}
+test.finalizedBy jacocoTestReport
 
 sonar {
     properties {
