@@ -55,8 +55,7 @@ pipeline {
                 container('jdk17') {                    
                     sh """                    
                     microdnf install git
-                    pwd
-                    ls
+                    git status
                     ./gradlew incrementVersion --versionIncrementType=PATCH --versionIncrementBranch=main -PgitUserName=ci-user -PgitUserEmail=ci-user@king.com                    
                     """
                 }
