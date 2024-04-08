@@ -49,7 +49,7 @@ pipeline {
         }
         stage('Release') {
             when {
-                expression { "${env.CHANGE_BRANCH}" == "main" }
+                expression { "${env.BRANCH_NAME}" == "main" }
                 not { changeset "build.gradle" }
             }
             steps {
