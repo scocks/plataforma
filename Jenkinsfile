@@ -53,13 +53,13 @@ pipeline {
             }
             steps {
                 container('jdk17') {                    
-                    sh """                    
+                    sh '''                    
                     microdnf install git        
                     git config --global --add safe.directory '*'
                     git config --global user.name "svc-jenkinsci"
                     git config --global user.email "svc-jenkinsci@king.com"
                     ./gradlew incrementVersion --versionIncrementType=PATCH 
-                    """
+                    '''
                     def version_value = sh(returnStdout: true, script: "cat build.gradle | grep -o 'version = [^,]*'").trim()
                     sh "echo Project in version value: $version_value"
                     def version = version_value.split(/=/)[1]
