@@ -54,9 +54,14 @@ pipeline {
             steps {
                 container('jdk17') {                    
                     sh """                    
-                    microdnf install git
-                    git status
-                    ./gradlew incrementVersion --versionIncrementType=PATCH --versionIncrementBranch=main -PgitUserName=ci-user -PgitUserEmail=ci-user@king.com                    
+                    microdnf install git        
+                    git config --global --add safe.directory '*'
+                    git config --global user.name "svc-jenkinsci"
+                    git config --global user.email "svc-jenkinsci@king.com"
+                    ./gradlew incrementVersion --versionIncrementType=PATCH 
+                    git add .
+                    git commit -m "Release of version ${$version}"
+                    git push
                     """
                 }
             }
