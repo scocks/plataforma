@@ -46,6 +46,20 @@ pipeline {
                 }
             }
         }
+        stage('Release') {
+            when {
+                expression { "${env.CHANGE_BRANCH}" == "main" }
+                not { changeset "build.gradle" }
+            }
+            steps {
+                container('jdk17') {                    
+                    sh """                    
+                    microdnf install git
+                    ./gradlew incrementVersion --versionIncrementType=PATCH --versionIncrementBranch=main -PgitUserName=ci-user -PgitUserEmail=ci-user@king.com                    
+                    """
+                }
+            }
+        } 
         stage('Publish') {
             steps {
                 container('jdk17') {                    
