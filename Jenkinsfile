@@ -41,6 +41,7 @@ pipeline {
             steps {
                 container('jdk17') {                    
                     sh """
+                    printenv
                     ./gradlew sonar
                     """
                 }
