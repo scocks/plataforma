@@ -3,6 +3,7 @@ plugins {
     id 'org.sonarqube' version '4.4.1.3373'
     id 'jacoco'
     id 'maven-publish'
+    id "com.sidneysimmons.gradle-plugin-external-properties" version "2.0.1"       
 }
 
 group 'org.king.plataforma'
@@ -17,8 +18,12 @@ repositories {
     }
 }
 
+externalProperties {
+    propertiesFileResolver file("versions.properties")
+}
+
 dependencies {    
-    implementation platform('org.king.plataforma-bom:plataforma-bom:1.0.0-SNAPSHOT')
+    implementation platform("org.king.plataforma-bom:plataforma-bom:${props.get('plataforma-bom')}")
     implementation 'org.king.libDep1:lib-dep-1'
     implementation 'org.king.libDep2:lib-dep-2'
     implementation 'org.king.libDep3:lib-dep-3'
