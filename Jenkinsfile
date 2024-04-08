@@ -59,6 +59,12 @@ pipeline {
                     git config --global user.name "svc-jenkinsci"
                     git config --global user.email "svc-jenkinsci@king.com"
                     ./gradlew incrementVersion --versionIncrementType=PATCH 
+                    """
+                    def version_value = sh(returnStdout: true, script: "cat build.gradle | grep -o 'version = [^,]*'").trim()
+                    sh "echo Project in version value: $version_value"
+                    def version = version_value.split(/=/)[1]
+                    sh "echo final version: $version"
+                    sh """
                     git add .
                     git commit -m "Release of version ${$version}"
                     git push
