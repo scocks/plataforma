@@ -40,8 +40,7 @@ pipeline {
         stage('Sonar') {
             steps {
                 container('jdk17') {                    
-                    sh """
-                    printenv
+                    sh """                    
                     ./gradlew sonar
                     """
                 }
@@ -56,6 +55,8 @@ pipeline {
                 container('jdk17') {                    
                     sh """                    
                     microdnf install git
+                    pwd
+                    ls
                     ./gradlew incrementVersion --versionIncrementType=PATCH --versionIncrementBranch=main -PgitUserName=ci-user -PgitUserEmail=ci-user@king.com                    
                     """
                 }
