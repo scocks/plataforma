@@ -59,7 +59,7 @@ pipeline {
                         git config --global --add safe.directory '*'
                         git config --global user.name "svc-jenkinsci"
                         git config --global user.email "svc-jenkinsci@king.com"
-                        ./gradlew incrementVersion --versionIncrementType=PATCH 
+                        ./gradlew incrementVersion --versionIncrementType=PATCH -Psnapshot=false
                         """
                         def version_value = sh(returnStdout: true, script: "cat build.gradle | grep -o 'version = [^,]*'").trim()
                         sh "echo Project in version value: $version_value"
@@ -67,7 +67,7 @@ pipeline {
                         sh "echo final version: $version"
                         sh """
                         git add .
-                        git commit -m "Release of version ${$version}"
+                        git commit -m "Release of version ${version}"
                         git push
                         """
                     }  
