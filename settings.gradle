@@ -1,2 +1,10 @@
-rootProject.name = 'plataforma'
+buildscript {
+    repositories {
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath("com.dipien:semantic-version-gradle-plugin:2.0.0")
+    }
+}
 
+rootProject.name = 'plataforma'
