@@ -24,4 +24,7 @@ public class Library {
         org.king.libdep5.Library libDep5 = new org.king.libdep5.Library();
         return "greet5 from plataforma " + libDep5.greet(name);
     }
+    public String greet6(String name) {
+        return "greet6 from plataforma " + name;
+    }
 }
