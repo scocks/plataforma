@@ -41,4 +41,10 @@ class MainTest {
         String result = library.greet5("plataforma");
         assertEquals("greet5 from plataforma greet from libdep5, plataforma", result);
     }
+    @Test
+    void testGreet6() {
+        Library library = new Library();
+        String result = library.greet6("plataforma");
+        assertEquals("greet6 from plataforma, plataforma", result);
+    }
 }
